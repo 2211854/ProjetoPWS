@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="f62feda0-ba1d-4f24-a8af-70ff89e737e6" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/views/layout/footer.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/footer.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/views/layout/header.php" beforeDir="false" afterPath="$PROJECT_DIR$/views/layout/header.php" afterDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ComposerSettings">
+    <execution />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$/.." />
+  </component>
+  <component name="TaskManager">
+    <servers />
+  </component>
+</project>
