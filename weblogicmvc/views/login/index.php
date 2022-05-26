@@ -1,4 +1,4 @@
-<?php require_once './views/layout/header.php'; ?>
+
     <div class="container">
         <div class="row">
             <div class="col"></div>
@@ -20,4 +20,3 @@
             <div class="col"></div>
         </div>
     </div>
-<?php require_once './views/layout/footer.php'; ?>
