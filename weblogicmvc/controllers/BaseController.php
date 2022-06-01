@@ -30,10 +30,14 @@ class BaseController
             }
             require_once './views/layout/footer.php';
         }
-        else{
+        elseif($view == 'login/index'){
             require_once './views/layout/headerLogin.php';
             require_once './views/' . $view . '.php';
             require_once './views/layout/footerLogin.php';
+        }else{
+            require_once './views/layout/headerSite.php';
+            require_once './views/' . $view . '.php';
+            require_once './views/layout/footerSite.php';
         }
 
 

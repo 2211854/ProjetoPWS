@@ -41,6 +41,6 @@ class AuthController extends BaseController
     {
         $auth = new Auth();
         $auth->logout();
-        $this->redirectToRoute('login', 'index');
+        $this->redirectToRoute('site', 'index');
     }
 }
