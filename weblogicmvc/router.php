@@ -26,6 +26,7 @@ else
                     break;
 
                 case "login":
+
                     $controller->login();
                     break;
 

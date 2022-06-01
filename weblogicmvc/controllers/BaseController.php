@@ -13,11 +13,30 @@ class BaseController
         {
             $username = $auth->getUsername();
             $role = $auth->getRole();
+            if($role == "Admin"){
+                require_once './views/layout/headerAdmin.php';
+                require_once './views/' . $view . '.php';
+
+            }elseif ($role == "Funcionario"){
+
+                require_once './views/layout/headerFunc.php';
+                require_once './views/' . $view . '.php';
+
+            }elseif ($role == "Cliente"){
+
+                require_once './views/layout/headerClient.php';
+                require_once './views/' . $view . '.php';
+
+            }
+            require_once './views/layout/footer.php';
+        }
+        else{
+            require_once './views/layout/headerLogin.php';
+            require_once './views/' . $view . '.php';
+            require_once './views/layout/footerLogin.php';
         }
 
-        require_once './views/layout/header.php';
-        require_once './views/' . $view . '.php';
-        require_once './views/layout/footer.php';
+
     }
 
     protected function redirectToRoute($controllerPrefix, $action)

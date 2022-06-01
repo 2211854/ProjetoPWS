@@ -13,7 +13,7 @@ class AuthController extends BaseController
         }
         else
         {
-            $this->redirectToRoute('plano', 'index');
+            $this->redirectToRoute('login', 'index');
         }
     }
 
@@ -41,6 +41,6 @@ class AuthController extends BaseController
     {
         $auth = new Auth();
         $auth->logout();
-        $this->redirectToRoute('site', 'index');
+        $this->redirectToRoute('login', 'index');
     }
 }
