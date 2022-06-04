@@ -24,7 +24,7 @@
                 </ul>
                 <ul class="nav ml-auto">
                     <li class="nav-item">
-                        <form action="./router.php?c=login&a=index" method="post">
+                        <form action="./?c=login&a=index" method="post">
                             <button class="btn btn-theme no-shadow" type="submit">Login</button>
                         </form>
                     </li>

@@ -34,7 +34,7 @@
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="./router.php?c=login&a=logout"" role="button">
+            <a class="nav-link" href="./?c=login&a=logout"" role="button">
                 <i class="fas fa-door-open"> Logout (<?php if(isset($username)){echo $username;} ?>)</i>
             </a>
         </li>

@@ -10,7 +10,7 @@ class BaseAuthController extends BaseController
 
         if(!$auth->isLoggedIn())
         {
-            header('Location: ./router.php?' . INVALID_ACCESS_ROUTE);
+            header('Location: ./?' . INVALID_ACCESS_ROUTE);
         }
     }
 
@@ -23,7 +23,7 @@ class BaseAuthController extends BaseController
 
         if(!$validRole)
         {
-            header('Location: ./router.php?' . INVALID_ACCESS_ROUTE);
+            header('Location: ./?' . INVALID_ACCESS_ROUTE);
         }
     }
 
