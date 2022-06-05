@@ -2,6 +2,7 @@
 require_once './startup/boot.php';
 require_once './controllers/SiteController.php';
 require_once './controllers/AuthController.php';
+require_once './controllers/EmpresaController.php';
 
 if(!isset($_GET['c'], $_GET['a']))
 {
@@ -37,6 +38,15 @@ else
 
         case "site":
             $controller = new SiteController();
+            switch ($a) {
+                case "index":
+                    $controller->index();
+                    break;
+            }
+            break;
+
+        case "empresa":
+            $controller = new EmpresaController();
             switch ($a) {
                 case "index":
                     $controller->index();

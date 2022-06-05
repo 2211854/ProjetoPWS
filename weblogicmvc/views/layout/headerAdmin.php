@@ -117,7 +117,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="./?c=empresa&a=index" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Empresa</p>
                 </a>
@@ -191,4 +191,3 @@
   <!-- Content Wrapper. Contains page content -->
   <div class="content-wrapper">
     <!-- Main content -->
-    <section class="content">
