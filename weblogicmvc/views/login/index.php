@@ -4,7 +4,7 @@
             <div class="row w-100">
                 <div class="col-lg-4 mx-auto">
                     <div class="auto-form-wrapper">
-                        <form action="./router.php?c=login&a=login" method="post">
+                        <form action="./?c=login&a=login" method="post">
                             <div class="form-group">
                                 <label class="label">Username</label>
                                 <div class="input-group">

@@ -45,6 +45,6 @@ class BaseController
 
     protected function redirectToRoute($controllerPrefix, $action)
     {
-        header('Location: ./router.php?c=' . $controllerPrefix . '&a=' . $action);
+        header('Location: ./?c=' . $controllerPrefix . '&a=' . $action);
     }
 }
