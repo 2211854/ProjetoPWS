@@ -61,6 +61,21 @@ else
                 case "index":
                     $controller->index();
                     break;
+                case "edit":
+                    $controller->edit($_GET['id']);
+                    break;
+                case "update":
+                    $controller->update($_GET['id']);
+                    break;
+                case "create":
+                    $controller->create();
+                    break;
+                case "store":
+                    $controller->store();
+                    break;
+                case "destroy":
+                    $controller->delete($_GET['id']);
+                    break;
             }
             break;
 
