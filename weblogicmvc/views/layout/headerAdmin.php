@@ -111,7 +111,7 @@
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="./?c=iva&a=index" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>IVA</p>
                 </a>
