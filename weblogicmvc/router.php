@@ -4,6 +4,7 @@ require_once './controllers/SiteController.php';
 require_once './controllers/AuthController.php';
 require_once './controllers/EmpresaController.php';
 require_once './controllers/IvaController.php';
+require_once './controllers/ProdutoController.php';
 
 if(!isset($_GET['c'], $_GET['a']))
 {
@@ -75,6 +76,27 @@ else
                     break;
                 case "destroy":
                     $controller->delete($_GET['id']);
+                    break;
+            }
+            break;
+
+        case "produto":
+            $controller = new ProdutoController();
+            switch ($a) {
+                case "index":
+                    $controller->index();
+                    break;
+                case "edit":
+                    $controller->edit($_GET['id']);
+                    break;
+                case "update":
+                    $controller->update($_GET['id']);
+                    break;
+                case "create":
+                    $controller->create();
+                    break;
+                case "store":
+                    $controller->store();
                     break;
             }
             break;
