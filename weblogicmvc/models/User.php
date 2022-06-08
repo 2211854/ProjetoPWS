@@ -7,7 +7,7 @@ class User extends \ActiveRecord\Model
     );
 
     static $validates_presence_of = array(
-        array('username', 'uniqueness' => 'Este username ja exite'),
+        array('username'),
         array('password'),
         array('email'),
         array('telefone'),
@@ -15,6 +15,7 @@ class User extends \ActiveRecord\Model
         array('morada'),
         array('codigo_postal'),
         array('localidade'),
+        array('estado'),
         array('role')
     );
 }

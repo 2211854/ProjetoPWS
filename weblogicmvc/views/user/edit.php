@@ -58,6 +58,15 @@
                                 <input type="text" class="form-control" id="localidade" name="localidade" value="<?= $user->localidade ?>"><?php if(isset($user->errors)){ echo $user->errors->on('localidade');} ?>
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputPassword1">Estado</label>
+                                <select class="form-group" id="estado" name="estado">
+                                    <option disabled selected value> escolha uma opção</option>
+                                    <option value="ativado">Ativado</option>
+                                    <option value="desativado">Desativado</option>
+                                </select>
+                                <input type="text" disabled class="form-control" value="<?= $user->estado ?> é o selecionado"><?php if(isset($iva->errors)){ echo $iva->errors->on('em_vigor');} ?>
+                            </div>
+                            <div class="form-group">
                                 <label for="role">Role</label>
                                 <input readonly type="text" class="form-control" id="role" name="role" value="<?= $user->role ?>"><?php if(isset($user->errors)){ echo $user->errors->on('role');} ?>
                             </div>
@@ -65,7 +74,7 @@
                         <!-- /.card-body -->
 
                         <div class="card-footer">
-                            <button type="submit" class="btn btn-primary">Editar</button> <a href="./?c=user&a=index" class="btn btn-primary float-right">Voltar</a>
+                            <button type="submit" class="btn btn-primary">Editar</button> <a href="./?c=user&a=index&tipo" class="btn btn-primary float-right">Voltar</a>
                         </div>
                     </form>
                 </div>

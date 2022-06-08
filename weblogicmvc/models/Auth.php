@@ -14,10 +14,15 @@ class Auth
         $user = User::find_by_username_and_password($username, $password);
         if(!is_null($user))
         {
-            $_SESSION['username'] = $username;
-            $_SESSION['role'] = $user->role;
-            $_SESSION['id'] = $user->id;
-            return true;
+            if($user->estado == 'ativado'){
+                $_SESSION['username'] = $username;
+                $_SESSION['role'] = $user->role;
+                $_SESSION['id'] = $user->id;
+                return true;
+            }else{
+                return false;
+            }
+
         }
         else
         {

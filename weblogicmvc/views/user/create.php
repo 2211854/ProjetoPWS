@@ -58,6 +58,15 @@
                                 <input type="text" class="form-control" id="localidade" name="localidade" value="<?php if(isset($user)){echo $user->localidade; }?>"><?php if(isset($user->errors)){ echo $user->errors->on('localidade');} ?>
                             </div>
                             <div class="form-group">
+                                <label for="exampleInputPassword1">Em vigor</label>
+                                <select class="form-group" id="estado" name="estado">
+                                    <option disabled selected value> escolha uma opção </option>
+                                    <option value="ativado">Ativado</option>
+                                    <option value="desativado">Desativado</option>
+                                </select>
+                                <?php if(isset($user->errors)){ echo $user->errors->on('estado');} ?>
+                            </div>
+                            <div class="form-group">
                                 <label for="role">Role</label>
                                 <input readonly type="text" class="form-control" id="role" name="role" value="<?php  if(isset($roleAdicionar)){echo $roleAdicionar; } elseif(isset($user)){echo $user->role; }?>"><?php if(isset($user->errors)){ echo $user->errors->on('role');} ?>
                             </div>
