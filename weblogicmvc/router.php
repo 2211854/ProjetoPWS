@@ -106,7 +106,7 @@ else
             $controller = new UserController();
             switch ($a) {
                 case "index":
-                    $controller->index();
+                    $controller->index($_GET['tipo']);
                     break;
                 case "edit":
                     $controller->edit($_GET['id']);

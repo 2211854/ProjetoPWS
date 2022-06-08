@@ -4,10 +4,10 @@ require_once './models/User.php';
 
 class UserController extends BaseController
 {
-    function index()
+    function index($tipo)
     {
         $users = User::all();
-        $this->renderView('user/index',['users'=>$users]);
+        $this->renderView('user/index',['users'=>$users,'tipo'=>$tipo]);
     }
 
     function create($roleAdicionar){

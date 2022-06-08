@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Tabela de users</h3><a href="./?c=user&a=create" class="btn btn-primary float-right">Criar</a>
+        <h3 class="card-title">Tabela de <?=$tipo?>s</h3><a href="./?c=user&a=create" class="btn btn-primary float-right">Criar</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
@@ -21,8 +21,12 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($users as $user) { ?>
-                <tr>
+            <?php foreach ($users as $user) {
+                    if ($user->role == $tipo){
+                        if($role=='Funcionario' && $tipo=='Funcionario'){?>
+                            <td colspan="11">Voce nao tem acesso a estes dados!</td>
+                    <?php }else{
+                    ?><tr>
                     <td><?=$user->id?></td>
                     <td><?=$user->username?></td>
                     <td><?=$user->password?></td>
@@ -37,7 +41,10 @@
                         <a href="?c=user&a=edit&id=<?=$user->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
                     </td>
                 </tr>
-            <?php } ?>
+            <?php   }
+                }
+            }
+            ?>
             </tbody>
         </table>
     </div>
