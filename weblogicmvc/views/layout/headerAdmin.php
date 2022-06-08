@@ -143,13 +143,13 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="./?c=user&a=create&role=Cliente" class="nav-link">
                                     <i class="far fa-dot-circle nav-icon"></i>
                                     <p>Cliente</p>
                                 </a>
                             </li>
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="./?c=user&a=create&role=Funcionario" class="nav-link">
                                     <i class="far fa-dot-circle nav-icon"></i>
                                     <p>Funcionario</p>
                                 </a>
@@ -166,7 +166,7 @@
                         </a>
                         <ul class="nav nav-treeview">
                             <li class="nav-item">
-                                <a href="#" class="nav-link">
+                                <a href="./?c=user&a=index" class="nav-link">
                                     <i class="far fa-dot-circle nav-icon"></i>
                                     <p>Cliente</p>
                                 </a>
