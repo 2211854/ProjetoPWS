@@ -76,13 +76,13 @@
             </a>
             <ul class="nav nav-treeview">
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="./?c=fatura&a=create" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Emitir</p>
                 </a>
               </li>
               <li class="nav-item">
-                <a href="#" class="nav-link">
+                <a href="./?c=fatura&a=index" class="nav-link">
                   <i class="far fa-circle nav-icon"></i>
                   <p>Historico</p>
                 </a>

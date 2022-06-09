@@ -52,6 +52,7 @@ class IvaController extends BaseController
             //create new resource (activerecord/model) instance with data from POST
             //your form name fields must match the ones of the table fields
             $iva = new Iva($_POST);
+
             if($iva->is_valid()){
                 $iva->save();
                 $this->redirectToRoute('iva', 'index');
