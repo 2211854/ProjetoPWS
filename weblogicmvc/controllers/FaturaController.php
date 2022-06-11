@@ -34,7 +34,7 @@ class FaturaController extends BaseController
             $fatura = new Fatura($array);
             if($fatura->is_valid()){
                 $fatura->save();
-                $this->redirectToRoute('fatura', 'index');
+                $this->redirectToRoute('linhaFatura', 'create&idFatura='.$fatura->id);
             } else {
                 //mostrar vista create passando o modelo como parâmetro
                 $this->redirectToRoute('fatura','create');

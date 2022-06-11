@@ -130,14 +130,26 @@ else
                 case "index":
                     $controller->index();
                     break;
-                case "edit":
-                    $controller->edit($_GET['id']);
-                    break;
-                case "update":
-                    $controller->update($_GET['id']);
-                    break;
                 case "create":
                     $controller->create();
+                    break;
+                case "store":
+                    $controller->store($_GET['idCliente']);
+                    break;
+                case "selectClient":
+                    $controller->selectClient();
+                    break;
+            }
+            break;
+
+        case "linhaFatura":
+            $controller = new LinhaFaturaController();
+            switch ($a) {
+                case "index":
+                    $controller->index();
+                    break;
+                case "create":
+                    $controller->create($_GET['idFatura']);
                     break;
                 case "store":
                     $controller->store($_GET['idCliente']);
