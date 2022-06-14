@@ -29,7 +29,7 @@
                     <td><?=$fatura->cliente->username?></td>
                     <td><?=$fatura->user->username?></td>
                     <td>
-                        <a href="?c=iva&a=edit&id=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
+                        <a href="?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
                     </td>
                 </tr>
             <?php } ?>

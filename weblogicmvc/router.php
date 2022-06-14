@@ -7,6 +7,7 @@ require_once './controllers/IvaController.php';
 require_once './controllers/ProdutoController.php';
 require_once './controllers/UserController.php';
 require_once './controllers/FaturaController.php';
+require_once './controllers/LinhaFaturaController.php';
 
 if(!isset($_GET['c'], $_GET['a']))
 {
@@ -149,13 +150,17 @@ else
                     $controller->index();
                     break;
                 case "create":
-                    $controller->create($_GET['idFatura']);
+                    if(isset($_GET['idProduto'])){
+                        $controller->create($_GET['idFatura'],$_GET['idProduto']);
+                    }else{
+                        $controller->create($_GET['idFatura'],null);
+                    }
                     break;
                 case "store":
-                    $controller->store($_GET['idCliente']);
+                    $controller->store($_GET['idFatura']);
                     break;
-                case "selectClient":
-                    $controller->selectClient();
+                case "selectProduct":
+                    $controller->selectProduct($_GET['idFatura']);
                     break;
             }
             break;

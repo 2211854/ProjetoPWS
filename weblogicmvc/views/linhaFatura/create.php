@@ -63,34 +63,54 @@
                             <table class="table table-striped">
                                 <thead>
                                 <tr>
-                                    <th>Ref</th>
-                                    <th>Descrição</th>
-                                    <th>Qtd</th>
-                                    <th>Preço Uni.</th>
-                                    <th>IVA</th>
-                                    <th>Taxa</th>
+                                    <th>Produto</th>
+                                    <th>Quantidade</th>
+                                    <th>Valor Unitario</th>
+                                    <th>Valor Iva</th>
                                     <th>Subtotal</th>
+                                    <th>Ações</th>
                                 </tr>
                                 </thead>
                                 <tbody>
                                 <?php
-                                if(isset($produtos)){
-                                    foreach ($produtos as $produto) { ?>
+                                if(isset($linhasFatura)){
+                                    foreach ($linhasFatura as $linhaFatura) { ?>
                                         <tr>
-                                            <td><?=$produto->referencia?></td>
-                                            <td><?=$produto->descricao?></td>
-                                            <td>€ <?=number_format($produto->preco,2)?></td>
-                                            <td><?=$produto->stock?></td>
-                                            <td><?=$produto->iva->percentagem?> </td>
+                                            <td><?=$linhaFatura->produto_id->descricao?></td>
+                                            <td><?=$linhaFatura->quantidade?></td>
+                                            <td>€ <?=number_format($linhaFatura->valor_unitario,2)?></td>
+                                            <td>€ <?=number_format($linhaFatura->valor_iva,2)?></td>
+                                            <td><?=$linhaFatura->quantidade * $linhaFatura->valor_iva?></td>
+                                            <td>
+                                                <a href="?c=linhaFatura&a=edit&idLinhaFatura=<?=$linhaFatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
+                                            </td>
                                         </tr>
                                     <?php }
                                 }
-                                    ?>
+                                if(isset($produto)){?>
+                                    <tr>
+                                        <form action="./?c=linhaFatura&a=store&idFatura=<?=$fatura->id?>" method="post">
+                                        <td><?=$produto->descricao?></td>
+                                        <td><input type="number" id="quantidade" name="quantidade" min="1" max="<?=$produto->stock?>"></td>
+                                        <td>€ <?=number_format($produto->preco,2)?></td>
+                                        <td>€ <?=number_format(($produto->preco * $produto->iva_id->percentagem),2)?></td>
+                                        <td>...</td>
+                                        <td>
+                                            <button type="submit" class="btn-sm text-decoration-none btn-warning" >Certo</button>
+                                        </form>
+                                            <a href="?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" >Apagar</a>
+                                        </td>
+                                    </tr>
+                                        <?php
+                                }else{?>
                                 <tr>
                                     <td colspan="7">
-                                        <a href="?c=linhaFatura&a=selectProduct" class="btn-sm text-decoration-none btn-warning" >Selecionar Produto</a>
+                                        <a href="?c=linhaFatura&a=selectProduct&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" >Selecionar Produto</a>
                                     </td>
                                 </tr>
+                                <?php
+                                }
+                                ?>
                                 </tbody>
                             </table>
                         </div>
@@ -102,7 +122,7 @@
                         <!-- accepted payments column -->
                         <div class="col-6">
                             <p class="text-muted well well-sm shadow-none" style="margin-top: 20%;">
-                                Fatura processada por <?= $fatura->user-username ?>
+                                Fatura processada por <?= $fatura->user->username ?>
                             </p>
                         </div>
                         <!-- /.col -->
