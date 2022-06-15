@@ -22,8 +22,8 @@
                 <tr>
                     <td><?=$fatura->id?></td>
                     <td><?= date_format($fatura->data, 'Y/m/d H:i:s') ?></td>
-                    <td><?=$fatura->valor_total?></td>
-                    <td><?=$fatura->iva_total?></td>
+                    <td>€ <?= number_format($fatura->valor_total,2)?></td>
+                    <td>€ <?= number_format($fatura->iva_total,2)?></td>
                     <td><?=$fatura->estado?></td>
                     <!--provavelmente vou fazer o find do cliente e do funcionario para mostrar o username do mesmo -->
                     <td><?=$fatura->cliente->username?></td>

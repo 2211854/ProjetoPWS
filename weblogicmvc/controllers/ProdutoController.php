@@ -48,12 +48,12 @@ class ProdutoController extends BaseAuthController
         }
     }
 
-    function delete($id)
+    /*function delete($id)
     {
         $produto = Produto::find([$id]);
         $produto->delete();
         $this->redirectToRoute('produto', 'index');
-    }
+    }*/
 
     function store()
     {
