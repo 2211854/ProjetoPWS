@@ -10,10 +10,6 @@ class Produto extends \ActiveRecord\Model
     );
 
     static $belongs_to = array(
-        array('iva')
+        array('iva'),
     );
-
-    /*static $has_many = array(
-        array('linha_faturas')
-    );*/
 }

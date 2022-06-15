@@ -15,8 +15,6 @@ class LinhaFatura extends \ActiveRecord\Model
         array('fatura'),
 
     );
+
 }
 
-    /*static $has_many = array(
-        array('linha_faturas')
-    );*/

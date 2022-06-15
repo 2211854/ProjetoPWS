@@ -156,11 +156,17 @@ else
                         $controller->create($_GET['idFatura'],null);
                     }
                     break;
+                case "edit":
+                    $controller->edit($_GET['idLinhaFatura']);
+                    break;
                 case "store":
-                    $controller->store($_GET['idFatura']);
+                    $controller->store($_GET['idFatura'],$_GET['idProduto']);
                     break;
                 case "selectProduct":
                     $controller->selectProduct($_GET['idFatura']);
+                    break;
+                case "update":
+                    $controller->update($_GET['idLinhaFatura']);
                     break;
             }
             break;

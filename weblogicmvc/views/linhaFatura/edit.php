@@ -74,42 +74,35 @@
                                 <tbody>
                                 <?php
                                 if(isset($linhasFatura)){
-                                    foreach ($linhasFatura as $linhaFatura) { ?>
+                                    foreach ($linhasFatura as $linhaFatura) {
+                                        if($linhaFatura->id == $linhaF->id){
+
+                                        ?>
+                                        <tr>
+                                            <form action="./?c=linhaFatura&a=update&idLinhaFatura=<?=$linhaFatura->id?>" method="post">
+                                            <td><?=$linhaFatura->produto->descricao?></td>
+                                            <td><input type="number" value="<?=$linhaFatura->quantidade?>" id="quantidade" name="quantidade" min="1" max="<?=$linhaFatura->produto->stock?>"></td>
+                                            <td>€ <?=number_format($linhaFatura->valor_unitario,2)?></td>
+                                            <td>€ <?=number_format($linhaFatura->valor_iva,2)?></td>
+                                            <td>€ <?=$linhaFatura->quantidade * ($linhaFatura->valor_iva + $linhaFatura->valor_unitario)?></td>
+                                            <td>
+                                                <button type="submit" class="btn-sm text-decoration-none btn-success" ><i class="fas fa-check"></i></button>
+                                            </form>
+                                                <a href="./?c=linhaFatura&a=create&idFatura=<?=$linhaFatura->fatura_id?>" type="submit" class="btn-sm text-decoration-none btn-danger" >apagar</a>
+
+                                            </td>
+                                        </tr>
+                                    <?php }else{?>
                                         <tr>
                                             <td><?=$linhaFatura->produto->descricao?></td>
                                             <td><?=$linhaFatura->quantidade?></td>
                                             <td>€ <?=number_format($linhaFatura->valor_unitario,2)?></td>
                                             <td>€ <?=number_format($linhaFatura->valor_iva,2)?></td>
                                             <td>€ <?=$linhaFatura->quantidade * ($linhaFatura->valor_iva + $linhaFatura->valor_unitario)?></td>
-                                            <td>
-                                                <a href="?c=linhaFatura&a=edit&idLinhaFatura=<?=$linhaFatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
-                                            </td>
+                                            <td></td>
                                         </tr>
                                     <?php }
-                                }
-                                if(isset($produto)){?>
-                                    <tr>
-                                        <form action="./?c=linhaFatura&a=store&idFatura=<?=$fatura->id?>&idProduto=<?=$produto->id?>" method="post">
-                                        <td><?=$produto->descricao?></td>
-                                        <td><input type="number" value="0" id="quantidade" name="quantidade" min="1" max="<?=$produto->stock?>"></td>
-                                        <td>€ <input readonly id="valor_unitario" name="valor_unitario" value="<?=number_format($produto->preco,2)?>"></td>
-                                        <td>€ <input readonly id="valor_iva" name="valor_iva" value="<?=number_format(($produto->preco * ($produto->iva->percentagem/100)),2)?>"></td>
-                                        <td>...</td>
-                                        <td>
-                                            <button type="submit" class="btn-sm text-decoration-none btn-success" ><i class="fas fa-check"></i></button>
-                                        </form>
-                                            <a href="./?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" type="submit" class="btn-sm text-decoration-none btn-danger" >apagar</a>
-
-                                        </td>
-                                    </tr>
-                                        <?php
-                                }else{?>
-                                <tr>
-                                    <td colspan="7">
-                                        <a href="./?c=linhaFatura&a=selectProduct&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" >Selecionar Produto</a>
-                                    </td>
-                                </tr>
-                                <?php
+                                    }
                                 }
                                 ?>
                                 </tbody>
