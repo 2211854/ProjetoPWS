@@ -43,8 +43,11 @@ class BaseController
 
     }
 
-    protected function redirectToRoute($controllerPrefix, $action)
-    {
-        header('Location: ./?c=' . $controllerPrefix . '&a=' . $action);
+    protected function redirectToRoute($controllerPrefix, $action, $params = []){
+        $url = 'Location: /?c='.$controllerPrefix.'&a='.$action;
+        foreach ($params as $paramKey => $paramValue){
+            $url.='&'.$paramKey.'='.$paramValue;
+        }
+        header($url);
     }
 }
