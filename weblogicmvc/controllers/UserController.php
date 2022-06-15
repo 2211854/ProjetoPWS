@@ -1,8 +1,7 @@
 <?php
-require_once './controllers/BaseController.php';
 require_once './models/User.php';
 
-class UserController extends BaseController
+class UserController extends BaseAuthController
 {
     function index($tipo)
     {

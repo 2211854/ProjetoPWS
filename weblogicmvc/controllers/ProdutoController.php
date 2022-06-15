@@ -1,8 +1,7 @@
 <?php
-require_once './controllers/BaseController.php';
 require_once './models/Produto.php';
 
-class ProdutoController extends BaseController
+class ProdutoController extends BaseAuthController
 {
     function index()
     {

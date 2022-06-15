@@ -1,8 +1,7 @@
 <?php
-require_once './controllers/BaseController.php';
 require_once './models/Iva.php';
 
-class IvaController extends BaseController
+class IvaController extends BaseAuthController
 {
     function index()
     {

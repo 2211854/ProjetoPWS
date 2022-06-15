@@ -1,8 +1,7 @@
 <?php
-require_once './controllers/BaseController.php';
 require_once './models/Empresa.php';
 
-class EmpresaController extends BaseController
+class EmpresaController extends BaseAuthController
 {
     function index(){
         $empresa = Empresa::find([1]);

@@ -1,9 +1,8 @@
 <?php
-require_once './controllers/BaseController.php';
 require_once './models/Fatura.php';
 require_once './models/Auth.php';
 
-class FaturaController extends BaseController
+class FaturaController extends BaseAuthController
 {
     function index()
     {

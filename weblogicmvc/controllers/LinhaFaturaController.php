@@ -1,8 +1,7 @@
 <?php
-require_once './controllers/BaseController.php';
 require_once './models/LinhaFatura.php';
 
-class LinhaFaturaController extends BaseController
+class LinhaFaturaController extends BaseAuthController
 {
     function index()
     {
@@ -41,11 +40,15 @@ class LinhaFaturaController extends BaseController
             //create new resource (activerecord/model) instance with data from POST
             //your form name fields must match the ones of the table fields
             $linhaFatura = new LinhaFatura($_POST);
+            var_dump($linhaFatura->produto->stock);
+            die;
 
             if($linhaFatura->is_valid() && $_POST['quantidade']<$produto->stock){
                 $linhaFatura->save();
                 //retirar a quantidade do stock do produto
+
                 //adicionar  o valor unitario * quantidade ao valor total do fatura
+
                 //adicionar  o valor iva * quantidade ao valor iva do fatura
 
 
