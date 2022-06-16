@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Escolha o produto</h3>
+        <h1 class="card-title m-0">Escolha o produto</h1>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">

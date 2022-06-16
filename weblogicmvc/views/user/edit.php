@@ -7,7 +7,7 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Editar User</h3>
+                        <h1 class="card-title m-0">Editar utilizador</h1>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->

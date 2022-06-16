@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Tabela de Clientes</h3>
+        <h1 class="card-title m-0">Tabela de Clientes</h1>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">

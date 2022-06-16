@@ -17,6 +17,6 @@
     <!-- inject:css -->
     <link rel="stylesheet" href="./publicLogin/assets/css/shared/style.css">
     <!-- endinject -->
-    <link rel="shortcut icon" href="./publicLogin/assets/images/favicon.ico" />
+    <link rel="shortcut icon" href="./public/img/logo.png" />
 </head>
 <body>

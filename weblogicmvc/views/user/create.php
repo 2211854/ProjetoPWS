@@ -7,7 +7,7 @@
                 <!-- general form elements -->
                 <div class="card card-primary">
                     <div class="card-header">
-                        <h3 class="card-title">Criar User</h3>
+                        <h1 class="card-title m-0">Criar User</h1>
                     </div>
                     <!-- /.card-header -->
                     <!-- form start -->
@@ -60,7 +60,7 @@
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Estado</label>
                                 <select class="form-group" id="estado" name="estado">
-                                    <option selected value="ativado">Ativado</option>
+                                    <option value="ativado" selected>Ativado</option>
                                     <option value="desativado">Desativado</option>
                                 </select>
                                 <?php if(isset($user->errors)){ echo $user->errors->on('estado');} ?>
