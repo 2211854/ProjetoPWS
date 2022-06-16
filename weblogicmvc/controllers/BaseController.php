@@ -44,7 +44,7 @@ class BaseController
     }
 
     protected function redirectToRoute($controllerPrefix, $action, $params = []){
-        $url = 'Location: /?c='.$controllerPrefix.'&a='.$action;
+        $url = 'Location: ./?c='.$controllerPrefix.'&a='.$action;
         foreach ($params as $paramKey => $paramValue){
             $url.='&'.$paramKey.'='.$paramValue;
         }
