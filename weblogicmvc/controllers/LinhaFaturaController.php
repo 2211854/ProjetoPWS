@@ -25,7 +25,8 @@ class LinhaFaturaController extends BaseAuthController
     function selectProduct($idFatura)
     {
         $fatura = Fatura::find([$idFatura]);
-        $produtos = Produto::all();
+        //mostrar os produtos que ainda nao estao na fatura
+        $produtos = Produto::find_by_sql('SELECT * FROM produtos WHERE id NOT in (SELECT produto_id FROM linha_faturas WHERE fatura_id = '.$idFatura.')');
         $this->renderView('linhaFatura/selectProduct',['fatura'=>$fatura,'produtos'=>$produtos]);
     }
 
@@ -78,6 +79,7 @@ class LinhaFaturaController extends BaseAuthController
         $linhaF = LinhaFatura::find([$idLinhaFatura]);
         $fatura = Fatura::find([$linhaF->fatura_id]);
         $empresa = Empresa::find([1]);
+
         $linhasFatura = LinhaFatura::find_all_by_fatura_id($linhaF->fatura_id);
         $this->renderView('linhaFatura/edit',['linhaF'=>$linhaF,'empresa'=>$empresa,'linhasFatura'=>$linhasFatura,'fatura'=>$fatura]);
     }
@@ -87,18 +89,38 @@ class LinhaFaturaController extends BaseAuthController
         $linhaF = LinhaFatura::find([$idLinhaFatura]);
         $fatura = Fatura::find([$linhaF->fatura_id]);
         $empresa = Empresa::find([1]);
+        $produto = Produto::find([$linhaF->produto_id]);
         $linhasFatura = LinhaFatura::find_all_by_fatura_id($linhaF->fatura_id);
         if(($_POST['quantidade'] != " "))
         {
             //find resource (activerecord/model) instance where PK = $id
             //your form name fields must match the ones of the table fields
 
+            //adicionar a quantidade do produto ao stock
+            $stockFinal = $produto->stock+$linhaF->quantidade;
+            $arrayProduto =  array('stock'=>$stockFinal);
+            //retirar  o valor unitario * quantidade ao valor total do fatura
+            $valorTotal = $fatura->valor_total - ($linhaF->valor_unitario * $linhaF->quantidade);
+            //retirar  o valor iva * quantidade ao valor iva do fatura
+            $ivaTotal = $fatura->iva_total - ($linhaF->valor_iva * $linhaF->quantidade);
+            $arrayFatura =  array('valor_total'=>$valorTotal,'iva_total'=>$ivaTotal);
+
             $linhaF->update_attributes($_POST);
             if($linhaF->is_valid() && $_POST['quantidade']<$linhaF->produto->stock){
                 $linhaF->save();
-                //editar a quantidade do stock do produto
-                //editar  o valor unitario * quantidade ao valor total do fatura
-                //editar  o valor iva * quantidade ao valor iva do fatura
+                //retirar a quantidade do stock do produto
+                $stockFinal = $arrayProduto['stock']-$_POST['quantidade'];
+                $arrayProduto['stock'] =  $stockFinal;
+                $produto->update_attributes($arrayProduto);
+                $produto->save();
+                //adicionar  o valor unitario * quantidade ao valor total do fatura
+                $valorTotal = $arrayFatura['valor_total'] + ($linhaF->valor_unitario * $_POST['quantidade']);
+                $arrayFatura['valor_total'] =  $valorTotal;
+                //adicionar  o valor iva * quantidade ao valor iva do fatura
+                $ivaTotal = $arrayFatura['iva_total'] + ($linhaF->valor_iva * $_POST['quantidade']);
+                $arrayFatura['iva_total'] =  $ivaTotal;
+                $fatura->update_attributes($arrayFatura);
+                $fatura->save();
                 $this->redirectToRoute('linhaFatura', 'create', ['idFatura' => $linhaF->fatura_id]);
             } else {
                 $this->renderView('linhaFatura/edit',['linhaF'=>$linhaF,'empresa'=>$empresa,'linhasFatura'=>$linhasFatura,'fatura'=>$fatura]);
@@ -108,6 +130,30 @@ class LinhaFaturaController extends BaseAuthController
         {
             $this->renderView('linhaFatura/edit',['linhaF'=>$linhaF,'empresa'=>$empresa,'linhasFatura'=>$linhasFatura,'fatura'=>$fatura]);
         }
+    }
+
+    function delete($idLinhaFatura)
+    {
+        $linhaF = LinhaFatura::find([$idLinhaFatura]);
+        $fatura = Fatura::find([$linhaF->fatura_id]);
+        $produto = Produto::find([$linhaF->produto_id]);
+
+        //adicionar a quantidade do produto ao stock
+        $stockFinal = $produto->stock+$linhaF->quantidade;
+        $arrayProduto =  array('stock'=>$stockFinal);
+        //retirar  o valor unitario * quantidade ao valor total do fatura
+        $valorTotal = $fatura->valor_total - ($linhaF->valor_unitario * $linhaF->quantidade);
+        //retirar  o valor iva * quantidade ao valor iva do fatura
+        $ivaTotal = $fatura->iva_total - ($linhaF->valor_iva * $linhaF->quantidade);
+        $arrayFatura =  array('valor_total'=>$valorTotal,'iva_total'=>$ivaTotal);
+        $produto->update_attributes($arrayProduto);
+        $produto->save();
+        $fatura->update_attributes($arrayFatura);
+        $fatura->save();
+
+
+        $linhaF->delete();
+        $this->redirectToRoute('linhaFatura', 'create', ['idFatura' => $fatura->id]);
     }
 
 }

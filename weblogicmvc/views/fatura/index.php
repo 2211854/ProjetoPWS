@@ -11,6 +11,7 @@
                 <th>Data</th>
                 <th>Valor total</th>
                 <th>Iva total</th>
+                <th>Subtotal</th>
                 <th>Estado</th>
                 <th>Cliente</th>
                 <th>Funcionario</th>
@@ -24,6 +25,7 @@
                     <td><?= date_format($fatura->data, 'Y/m/d H:i:s') ?></td>
                     <td>€ <?= number_format($fatura->valor_total,2)?></td>
                     <td>€ <?= number_format($fatura->iva_total,2)?></td>
+                    <td>€ <?= number_format(($fatura->iva_total+$fatura->valor_total),2)?></td>
                     <td><?=$fatura->estado?></td>
                     <!--provavelmente vou fazer o find do cliente e do funcionario para mostrar o username do mesmo -->
                     <td><?=$fatura->cliente->username?></td>
