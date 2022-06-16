@@ -10,7 +10,7 @@
 
     <title><?= APP_NAME ?></title>
 
-    <link rel="shortcut icon" href="./publicHome/assets/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="./public/img/logo.png" />
 
     <link rel="stylesheet" type="text/css" href="./publicHome/assets/css/themify-icons.css">
 

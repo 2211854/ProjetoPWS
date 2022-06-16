@@ -1,6 +1,6 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Tabela de Faturas</h3><a href="./?c=fatura&a=create" class="btn btn-primary float-right">Criar</a>
+        <h1 class="card-title m-0">Tabela de Faturas</h1><a href="./?c=fatura&a=create" class="btn btn-primary float-right">Criar</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">

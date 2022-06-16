@@ -11,12 +11,14 @@ class BaseController
 
         if($auth->isLoggedIn())
         {
-            $username = $auth->getUsername();
-            $role = $auth->getRole();
-
-            require_once './views/layout/header.php';
-            require_once './views/' . $view . '.php';
-            require_once './views/layout/footer.php';
+            if($view == 'site/index'){
+                $this->redirectToRoute('site','show');
+            }
+            else{
+                require_once './views/layout/header.php';
+                require_once './views/' . $view . '.php';
+                require_once './views/layout/footer.php';
+            }
         }
         elseif($view == 'login/index'){
             require_once './views/layout/headerLogin.php';

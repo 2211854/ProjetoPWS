@@ -4,7 +4,7 @@
     <div class="container-fluid">
         <div class="row mb-2">
             <div class="col-sm-6">
-                <h1>Fatura</h1>
+                <h1 class=" card-title m-0">Fatura</h1>
             </div>
         </div>
     </div><!-- /.container-fluid -->

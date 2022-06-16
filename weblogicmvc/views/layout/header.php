@@ -15,6 +15,8 @@
   <link rel="stylesheet" href="./public1/dist/css/adminlte.min.css">
 
     <link href="./public/css/bootstrap.min.css" rel="stylesheet">
+
+    <link rel="shortcut icon" href="./public/img/logo.png" />
 </head>
 <body class="hold-transition sidebar-mini layout-fixed">
 <!-- Site wrapper -->
@@ -27,15 +29,15 @@
         <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
       </li>
       <li class="nav-item d-none d-sm-inline-block">
-        <a class="nav-link">Administrador</a>
+        <a class="nav-link"><?=$_SESSION['role']?></a>
       </li>
     </ul>
 
     <!-- Right navbar links -->
     <ul class="navbar-nav ml-auto">
         <li class="nav-item">
-            <a class="nav-link" href="./?c=login&a=logout"" role="button">
-                <i class="fas fa-door-open"> Logout (<?php if(isset($username)){echo $username;} ?>)</i>
+            <a class="nav-link" href="./?c=login&a=logout" role="button">
+                <i class="fas fa-door-open"> Logout (<?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?>)</i>
             </a>
         </li>
     </ul>
@@ -45,10 +47,11 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="#" class="brand-link">
+    <a href="./?c=site&a=show" class="brand-link">
       <img src="./public1/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
-      <span class="brand-text font-weight-light"> Fatura +</span>
+        <span class="brand-text font-weight-light"> <?=APP_NAME?> </span>
     </a>
+    </span>
 
     <!-- Sidebar -->
     <div class="sidebar">
@@ -58,7 +61,7 @@
           <img src="./public1/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
         </div>
         <div class="info">
-          <a href="#" class="d-block"><?php if(isset($username)){echo $username;} ?></a><!-- Ao clicar aqui abrir uma pagina do utilizador onde se pode alterar a password caso seja possivel -->
+          <a href="#" class="d-block"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a><!-- Ao clicar aqui abrir uma pagina do utilizador onde se pode alterar a password caso seja possivel -->
         </div>
       </div>
 
@@ -66,9 +69,9 @@
       <nav class="mt-2">
         <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
             <?php
-            if(isset($role)){
+            if(isset($_SESSION['role'])){
 
-            if($role == 'Cliente' || $role == 'Admin' || $role=='Funcionario'){
+            if($_SESSION['role'] == 'Cliente' || $_SESSION['role'] == 'Admin' || $_SESSION['role']=='Funcionario'){
             ?>
           <li class="nav-header">Funções</li>
           <li class="nav-item">
@@ -81,7 +84,7 @@
             </a>
             <ul class="nav nav-treeview">
                 <?php
-                if($role == 'Admin' || $role == 'Funcionario'){
+                if($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Funcionario'){
                 ?>
               <li class="nav-item">
                 <a href="./?c=fatura&a=create" class="nav-link">
@@ -100,7 +103,7 @@
           </li>
 
             <?php
-            if($role == 'Admin' || $role == 'Funcionario'){
+            if($_SESSION['role'] == 'Admin' || $_SESSION['role'] == 'Funcionario'){
                 ?>
               <li class="nav-item">
                 <a href="#" class="nav-link">
@@ -170,7 +173,7 @@
                                 </li>
                             </ul>
                         </li>
-                        <?php if($role == 'Admin'){ ?>
+                        <?php if($_SESSION['role'] == 'Admin'){ ?>
                         <li class="nav-item">
                             <a href="#" class="nav-link">
                                 <i class="far fa-circle nav-icon"></i>

@@ -48,6 +48,9 @@ else
                 case "index":
                     $controller->index();
                     break;
+                case "show":
+                    $controller->show();
+                    break;
             }
             break;
 

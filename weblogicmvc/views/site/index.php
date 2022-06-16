@@ -48,7 +48,7 @@
         </div>
         <h1 class="fw-normal text-center wow fadeInUp">Funcionalidades</h1>
         <div class="row mt-5">
-            <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="col">
                 <div class="card card-service wow fadeInUp">
                     <div class="icon">
                         <span class="ti-receipt"></span>
@@ -59,7 +59,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="col">
                 <div class="card card-service wow fadeInUp">
                     <div class="icon">
                         <span class="ti-settings"></span>
@@ -70,7 +70,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-md-6 col-lg-4 col-xl-3">
+            <div class="col">
                 <div class="card card-service wow fadeInUp">
                     <div class="icon">
                         <span class="ti-user"></span>
@@ -78,17 +78,6 @@
                     <div class="caption">
                         <h4 class="fg-theme">Clientes</h4>
                         <p>Podem visualizar o historico das suas faturas</p>
-                    </div>
-                </div>
-            </div>
-            <div class="col-md-6 col-lg-4 col-xl-3">
-                <div class="card card-service wow fadeInUp">
-                    <div class="icon">
-                        <span class="ti-desktop"></span>
-                    </div>
-                    <div class="caption">
-                        <h4 class="fg-theme">Nao sei</h4>
-                        <p>O que por aqui</p>
                     </div>
                 </div>
             </div>

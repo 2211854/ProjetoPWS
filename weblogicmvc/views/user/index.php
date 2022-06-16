@@ -1,9 +1,10 @@
 <div class="card">
-    <?php if($role=='Funcionario' && $tipo=='Funcionario'){?>
+    <?php if($_SESSION['role']=='Funcionario' && $tipo=='Funcionario'){?>
     <h3>Voce nao tem acesso a estes dados!</h3>
     <?php }else{?>
     <div class="card-header">
-        <h3 class="card-title">Tabela de <?=$tipo?>s</h3><a href="./?c=user&a=create&role=<?=$tipo?>" class="btn btn-primary float-right">Criar</a>
+
+        <h1 class="card-title m-0">Tabela de <?=$tipo?>s</h1><a href="./?c=user&a=create&role=<?=$tipo?>" class="btn btn-primary float-right">Criar</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">

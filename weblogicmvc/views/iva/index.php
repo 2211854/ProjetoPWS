@@ -1,6 +1,7 @@
 <div class="card">
     <div class="card-header">
-        <h3 class="card-title">Tabela de Ivas</h3><a href="./?c=iva&a=create" class="btn btn-primary float-right">Criar</a>
+        <h1 class="card-title m-0">Tabela IVAS</h1>
+        <a href="./?c=iva&a=create" class="btn btn-primary float-right">Criar</a>
     </div>
     <!-- /.card-header -->
     <div class="card-body p-0">
