@@ -25,6 +25,7 @@ class UserController extends BaseAuthController
             //your form name fields must match the ones of the table fields
             $user = new User($_POST);
             if($user->is_valid()){
+                $user->password = md5($user->password);
                 $user->save();
                 $this->redirectToRoute('user', 'index',['tipo' => $user->role]);
             } else {
@@ -41,9 +42,7 @@ class UserController extends BaseAuthController
 
     function edit($id){
         $user = User::find([$id]);
-        if(is_null($user)){
-
-        }else{
+        if(!is_null($user)){
             $this->renderView('user/edit',['user'=>$user]);
         }
     }
