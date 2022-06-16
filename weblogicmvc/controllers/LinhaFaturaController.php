@@ -5,7 +5,8 @@ class LinhaFaturaController extends BaseAuthController
 {
     function index()
     {
-        $this->renderView('linhaFatura/index');
+        $faturas = Fatura::all();
+        $this->renderView('linhaFatura/index',['faturas'=> $faturas ]);
     }
 
     function create($idFatura,$idProduto)
@@ -59,15 +60,15 @@ class LinhaFaturaController extends BaseAuthController
                 $fatura->update_attributes($arrayFatura);
                 $fatura->save();
 
-                $this->redirectToRoute('linhaFatura', 'create&idFatura='.$idFatura);
+                $this->redirectToRoute('linhaFatura', 'create', ['idFatura' => $idFatura]);
             } else {
                 //mostrar vista create passando o modelo como parâmetro
-                $this->redirectToRoute('linhaFatura', 'create&idFatura='.$idFatura.'&idProduto='.$idProduto);
+                $this->redirectToRoute('linhaFatura', 'create', ['idFatura' => $idFatura, 'idProduto'=> $idProduto ]);
             }
         }
         else
         {
-            $this->redirectToRoute('linhaFatura', 'create&idFatura='.$idFatura.'&idProduto='.$idProduto);
+            $this->redirectToRoute('linhaFatura', 'create', ['idFatura' => $idFatura, 'idProduto'=> $idProduto ]);
         }
     }
 
@@ -98,7 +99,7 @@ class LinhaFaturaController extends BaseAuthController
                 //editar a quantidade do stock do produto
                 //editar  o valor unitario * quantidade ao valor total do fatura
                 //editar  o valor iva * quantidade ao valor iva do fatura
-                $this->redirectToRoute('linhaFatura', 'create&idFatura='.$linhaF->fatura_id);
+                $this->redirectToRoute('linhaFatura', 'create', ['idFatura' => $linhaF->fatura_id]);
             } else {
                 $this->renderView('linhaFatura/edit',['linhaF'=>$linhaF,'empresa'=>$empresa,'linhasFatura'=>$linhasFatura,'fatura'=>$fatura]);
             }

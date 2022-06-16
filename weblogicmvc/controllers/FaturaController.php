@@ -7,7 +7,7 @@ class FaturaController extends BaseAuthController
     function index()
     {
         $faturas = Fatura::all();
-        $this->renderView('fatura/index',['faturas'=>$faturas]);
+        $this->renderView('fatura/index',['faturas' => $faturas]);
     }
 
     function create()
@@ -33,7 +33,7 @@ class FaturaController extends BaseAuthController
             $fatura = new Fatura($array);
             if($fatura->is_valid()){
                 $fatura->save();
-                $this->redirectToRoute('linhaFatura', 'create&idFatura='.$fatura->id);
+                $this->redirectToRoute('linhaFatura', 'create',['idFatura' => $fatura->id]);
             } else {
                 //mostrar vista create passando o modelo como parâmetro
                 $this->redirectToRoute('fatura','create');

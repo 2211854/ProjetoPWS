@@ -26,7 +26,7 @@ class UserController extends BaseAuthController
             $user = new User($_POST);
             if($user->is_valid()){
                 $user->save();
-                $this->redirectToRoute('user', 'index&tipo='.$user->role);
+                $this->redirectToRoute('user', 'index',['tipo' => $user->role]);
             } else {
                 //mostrar vista create passando o modelo como parâmetro
                 $this->renderView('user/create', ['user' =>$user]);
@@ -59,7 +59,7 @@ class UserController extends BaseAuthController
             $user->update_attributes($_POST);
             if($user->is_valid()){
                 $user->save();
-                $this->redirectToRoute('user', 'index&tipo='.$user->role);
+                $this->redirectToRoute('user', 'index',['tipo' => $user->role]);
             } else {
                 $this->renderView('user/edit', ['produto'=>$user]);
             }
