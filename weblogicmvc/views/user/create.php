@@ -58,9 +58,8 @@
                                 <input type="text" class="form-control" id="localidade" name="localidade" value="<?php if(isset($user)){echo $user->localidade; }?>"><?php if(isset($user->errors)){ echo $user->errors->on('localidade');} ?>
                             </div>
                             <div class="form-group">
-                                <label for="exampleInputPassword1">Em vigor</label>
+                                <label for="exampleInputPassword1">Estado</label>
                                 <select class="form-group" id="estado" name="estado">
-                                    <option disabled value> escolha uma opção </option>
                                     <option value="ativado" selected>Ativado</option>
                                     <option value="desativado">Desativado</option>
                                 </select>

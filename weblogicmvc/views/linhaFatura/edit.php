@@ -88,7 +88,7 @@
                                             <td>
                                                 <button type="submit" class="btn-sm text-decoration-none btn-success" ><i class="fas fa-check"></i></button>
                                             </form>
-                                                <a href="./?c=linhaFatura&a=create&idFatura=<?=$linhaFatura->fatura_id?>" type="submit" class="btn-sm text-decoration-none btn-danger" >apagar</a>
+                                                <a href="./?c=linhaFatura&a=create&idFatura=<?=$linhaFatura->fatura_id?>" type="submit" class="btn-sm text-decoration-none btn-danger" ><i class="fas fa-xmark"></i></a>
 
                                             </td>
                                         </tr>

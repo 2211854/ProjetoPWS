@@ -172,6 +172,9 @@ else
                 case "update":
                     $controller->update($_GET['idLinhaFatura']);
                     break;
+                case "destroy":
+                    $controller->delete($_GET['idLinhaFatura']);
+                    break;
             }
             break;
 

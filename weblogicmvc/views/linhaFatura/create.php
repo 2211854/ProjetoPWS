@@ -67,7 +67,7 @@
                                     <th>Quantidade</th>
                                     <th>Valor Unitario</th>
                                     <th>Valor Iva</th>
-                                    <th>Subtotal</th>
+                                    <th>Total</th>
                                     <th>Ações</th>
                                 </tr>
                                 </thead>
@@ -83,6 +83,7 @@
                                             <td>€ <?=$linhaFatura->quantidade * ($linhaFatura->valor_iva + $linhaFatura->valor_unitario)?></td>
                                             <td>
                                                 <a href="?c=linhaFatura&a=edit&idLinhaFatura=<?=$linhaFatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
+                                                <a href="?c=linhaFatura&a=destroy&idLinhaFatura=<?=$linhaFatura->id?>" class="btn-sm text-decoration-none btn-danger" >Apagar</a>
                                             </td>
                                         </tr>
                                     <?php }
@@ -98,7 +99,7 @@
                                         <td>
                                             <button type="submit" class="btn-sm text-decoration-none btn-success" ><i class="fas fa-check"></i></button>
                                         </form>
-                                            <a href="./?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" type="submit" class="btn-sm text-decoration-none btn-danger" >apagar</a>
+                                            <a href="./?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" type="submit" class="btn-sm text-decoration-none btn-danger" ><i class="far fa-xmark"></i></a>
 
                                         </td>
                                     </tr>
