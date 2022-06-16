@@ -19,7 +19,8 @@
             </tr>
             </thead>
             <tbody>
-            <?php foreach ($faturas as $fatura) { ?>
+            <?php foreach ($faturas as $fatura) {
+                ?>
                 <tr>
                     <td><?=$fatura->id?></td>
                     <td><?= date_format($fatura->data, 'Y/m/d H:i:s') ?></td>
@@ -31,7 +32,11 @@
                     <td><?=$fatura->cliente->username?></td>
                     <td><?=$fatura->user->username?></td>
                     <td>
+                        <?php  if($fatura->estado == 'em processamento'){ ?>
                         <a href="?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
+                        <?php }else{?>
+                            <a href="?c=fatura&a=show&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-success" >Mostrar</a>
+                        <?php }?>
                     </td>
                 </tr>
             <?php } ?>

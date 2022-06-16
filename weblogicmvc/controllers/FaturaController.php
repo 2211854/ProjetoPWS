@@ -46,4 +46,42 @@ class FaturaController extends BaseAuthController
 
     }
 
+    function update($id)
+    {
+        //find resource (activerecord/model) instance where PK = $id
+        //your form name fields must match the ones of the table fields
+        $fatura = Fatura::find([$id]);
+        $array = array('estado' => 'emitida');
+        $fatura->update_attributes($array);
+        if($fatura->is_valid()){
+            $fatura->save();
+            $this->redirectToRoute('fatura', 'show',['idFatura' => $fatura->id]);
+        } else {
+            $this->redirectToRoute('linhaFatura', 'create',['idFatura' => $fatura->id]);
+        }
+    }
+
+    function updateCancel($id)
+    {
+        //find resource (activerecord/model) instance where PK = $id
+        //your form name fields must match the ones of the table fields
+        $fatura = Fatura::find([$id]);
+        $array = array('estado' => 'cancelada');
+        $fatura->update_attributes($array);
+        if($fatura->is_valid()){
+            $fatura->save();
+            $this->redirectToRoute('fatura', 'show',['idFatura' => $fatura->id]);
+        } else {
+            $this->redirectToRoute('linhaFatura', 'create',['idFatura' => $fatura->id]);
+        }
+    }
+
+    function show($id){
+
+        $fatura = Fatura::find([$id]);
+        $linhasFatura = LinhaFatura::find_all_by_fatura_id($id);
+        $empresa = Empresa::find([1]);
+        $this->renderView('fatura/show',['fatura'=>$fatura,'empresa'=>$empresa,'linhasFatura'=>$linhasFatura]);
+    }
+
 }

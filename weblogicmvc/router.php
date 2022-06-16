@@ -141,6 +141,15 @@ else
                 case "selectClient":
                     $controller->selectClient();
                     break;
+                case "update":
+                    $controller->update($_GET['idFatura']);
+                    break;
+                case "updateCancel":
+                    $controller->updateCancel($_GET['idFatura']);
+                    break;
+                case "show":
+                    $controller->show($_GET['idFatura']);
+                    break;
             }
             break;
 
