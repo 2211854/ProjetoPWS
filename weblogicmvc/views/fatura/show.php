@@ -125,7 +125,7 @@
                     <!-- this row will not appear when printing-->
                     <div class="row no-print">
                         <div class="col-12">
-                            <a href="invoice-print.html" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
+                            <a href="./?c=fatura&a=print&idFatura=<?=$fatura->id?>" rel="noopener" target="_blank" class="btn btn-default"><i class="fas fa-print"></i> Print</a>
                             <a href="./?c=fatura&a=updateCancel&idFatura=<?=$fatura->id?>" type="button" class="btn btn-danger float-right">
                                 Cancelar
                             </a>

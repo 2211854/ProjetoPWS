@@ -11,7 +11,6 @@
         <table class="table table-responsive-md">
             <thead>
             <tr>
-                <th style="width: 10px">#</th>
                 <th>Username</th>
                 <th>Password</th>
                 <th>Email</th>
@@ -29,9 +28,8 @@
             <?php foreach ($users as $user) {
                     if ($user->role == $tipo){
                     ?><tr>
-                    <td><?=$user->id?></td>
                     <td><?=$user->username?></td>
-                    <td type="password"><?=$user->password?></td>
+                    <td ><?=$user->password?></td>
                     <td><?=$user->email?></td>
                     <td><?=$user->telefone?></td>
                     <td><?=$user->nif?></td>

@@ -8,7 +8,6 @@
         <table class="table table-responsive-md">
             <thead>
             <tr>
-                <th style="width: 10px">#</th>
                 <th>Percentagem</th>
                 <th>Descrição</th>
                 <th style="width: 40px">Em vigor</th>
@@ -18,7 +17,6 @@
             <tbody>
             <?php foreach ($ivas as $iva) { ?>
                 <tr>
-                    <td><?=$iva->id?></td>
                     <td><?=$iva->percentagem?> %</td>
                     <td><?=$iva->descricao?></td>
                     <td><?=$iva->em_vigor?></td>

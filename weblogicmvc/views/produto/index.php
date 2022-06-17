@@ -9,7 +9,6 @@
         <table class="table table-responsive-md">
             <thead>
             <tr>
-                <th style="width: 10px">#</th>
                 <th>Referencia</th>
                 <th>Descrição</th>
                 <th>Preço</th>
@@ -21,7 +20,6 @@
             <tbody>
             <?php foreach ($produtos as $produto) { ?>
                 <tr>
-                    <td><?=$produto->id?></td>
                     <td><?=$produto->referencia?></td>
                     <td><?=$produto->descricao?></td>
                     <td>€ <?=number_format($produto->preco,2)?></td>
