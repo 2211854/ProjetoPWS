@@ -16,9 +16,13 @@ class FaturaController extends BaseAuthController
         $this->renderView('fatura/create',['empresa'=>$empresa]);
     }
 
-    function selectClient()
+    function selectClient($procurarCliente)
     {
-        $clientes = User::find_all_by_role_and_estado('Cliente','ativado');
+        if(!is_null($procurarCliente)){
+            $clientes = User::find_by_sql('SELECT * FROM users WHERE role = "Cliente" and estado = "ativado" and username LIKE "%'.$procurarCliente.'%"');
+        }else{
+            $clientes = User::find_all_by_role_and_estado('Cliente','ativado');
+        }
         $this->renderView('fatura/selectClient',['clientes'=>$clientes]);
     }
 
