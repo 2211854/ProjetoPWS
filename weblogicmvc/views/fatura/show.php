@@ -21,7 +21,7 @@
                     <div class="row">
                         <div class="col-12">
                             <h3>
-                                <i class="fas fa-globe"></i> <br>Fatura+, Inc.
+                                <img src="./public/img/logo.png"> <br>Fatura+, Inc.
                             </h3>
                             <h5>Date: <?= date_format($fatura->data,'Y/m/d') ?></h5>
                         </div>

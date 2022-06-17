@@ -23,11 +23,11 @@
                             </div>
                             <div class="form-group">
                                 <label for="preco">Preço</label>
-                                <input type="text" class="form-control" id="preco" name="preco" value="<?= $produto->preco?>"><?php if(isset($produto->errors)){ echo $produto->errors->on('preco');} ?>
+                                <input type="number" step="0.01" class="form-control" id="preco" name="preco" value="<?= $produto->preco?>"><?php if(isset($produto->errors)){ echo $produto->errors->on('preco');} ?>
                             </div>
                             <div class="form-group">
                                 <label for="stock">Stock</label>
-                                <input type="text" class="form-control" id="stock" name="stock" value="<?= $produto->stock ?>"><?php if(isset($produto->errors)){ echo $produto->errors->on('stock');} ?>
+                                <input type="number" class="form-control" id="stock" name="stock" value="<?= $produto->stock ?>"><?php if(isset($produto->errors)){ echo $produto->errors->on('stock');} ?>
                             </div>
                             <div class="form-group">
                                 <label >Iva</label>

@@ -43,7 +43,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="nif">Nif</label>
-                                <input type="text" class="form-control" id="nif" name="nif" value="<?= $user->nif ?>"><?php if(isset($user->errors)){ echo $user->errors->on('nif');} ?>
+                                <input type="number" class="form-control" id="nif" name="nif" value="<?= $user->nif ?>"><?php if(isset($user->errors)){ echo $user->errors->on('nif');} ?>
                             </div>
                             <div class="form-group">
                                 <label for="morada">Morada</label>

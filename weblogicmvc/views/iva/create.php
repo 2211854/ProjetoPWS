@@ -15,7 +15,7 @@
                         <div class="card-body">
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Percentagem</label>
-                                <input type="text" class="form-control" id="percentagem" name="percentagem" value="<?php if(isset($iva)){echo $iva->percentagem; }?>"><?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem');} ?>
+                                <input type="number" class="form-control" id="percentagem" name="percentagem" value="<?php if(isset($iva)){echo $iva->percentagem; }?>"><?php if(isset($iva->errors)){ echo $iva->errors->on('percentagem');} ?>
                             </div>
                             <div class="form-group">
                                 <label for="exampleInputPassword1">Descrição</label>
