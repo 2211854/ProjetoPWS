@@ -195,7 +195,10 @@ else
                     break;
                 case "selectClient":
                     $controller->loginFilterByRole(['Admin','Funcionario']);
-                    $controller->selectClient();
+                    if(isset($_POST['cliente'])){
+                        $controller->selectClient($_POST['cliente']);
+                    }
+                    $controller->selectClient(null);
                     break;
                 case "update":
                     $controller->loginFilterByRole(['Admin','Funcionario']);
@@ -240,7 +243,11 @@ else
                     $controller->store($_GET['idFatura'],$_GET['idProduto']);
                     break;
                 case "selectProduct":
-                    $controller->selectProduct($_GET['idFatura']);
+                    if(isset($_POST['produto'])){
+                        $controller->selectProduct($_GET['idFatura'],$_POST['produto']);
+                    }else{
+                        $controller->selectProduct($_GET['idFatura'],null);
+                    }
                     break;
                 case "update":
                     $controller->update($_GET['idLinhaFatura']);
