@@ -209,11 +209,11 @@ else
                     $controller->updateCancel($_GET['idFatura']);
                     break;
                 case "show":
-                    $controller->loginFilterByRole(['Admin','Funcionario']);
+                    $controller->loginFilterByRole(['Admin','Funcionario','Cliente']);
                     $controller->show($_GET['idFatura']);
                     break;
                 case "print":
-                    $controller->loginFilterByRole(['Admin','Funcionario']);
+                    $controller->loginFilterByRole(['Admin','Funcionario','Cliente']);
                     $controller->print($_GET['idFatura']);
                     break;
                 default:

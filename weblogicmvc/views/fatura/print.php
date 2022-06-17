@@ -1,3 +1,13 @@
+<style>
+    @media print {
+        body {
+            -webkit-filter: grayscale(100%);
+            -moz-filter: grayscale(100%);
+            -ms-filter: grayscale(100%);
+            filter: grayscale(100%);
+        }
+    }
+</style>
 <br>
 <!-- Content Header (Page header) -->
 <section class="content-header">

@@ -61,7 +61,7 @@
             <form enctype="multipart/form-data" action="./?c=user&a=imageChange&id=<?=$_SESSION['id']?>" method="POST">
                  <div class="custom-file p-0">
                      <img class="custom-file-label image-circle elevation-2 w-100 h-100 p-0" alt="User Image" src="<?=$_SESSION['image']?>">
-                    <input  type="file" class=" custom-file-input w-100 h-100 p-0" name="image" id="customFile" onchange="this.form.submit()">
+                    <input  type="file" class=" custom-file-input w-100 h-100 p-0" accept="image/jpg, image/jpeg, image/png" name="image" id="customFile" onchange="this.form.submit()">
                 </div>
             </form>
         </div>
