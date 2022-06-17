@@ -12,6 +12,7 @@
 |---------------------|----------|---------|
 | Cliente             | Diogo    | 1234    |
 | Cliente             | Jose     | 1234    |
+| Cliente             | Ricardo  | 1234    |
 | Funcionario         | Joao     | 1234    |
 | Funcionario         | Marcio   | 1234    |
 | Admin               | admin    | 1234    |
