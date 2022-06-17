@@ -13,6 +13,9 @@
                     <!-- form start -->
                     <form action="./?c=user&a=update&id=<?=$user->id?>" method="post">
                         <div class="card-body">
+                            <?php
+                            if($user->id != $_SESSION['id']){
+                                ?>
                             <div class="form-group">
                                 <label for="username">Username</label>
                                 <input type="text" class="form-control" id="username" name="username" value="<?= $user->username ?>">
@@ -29,6 +32,7 @@
                                 }
                                 ?>
                             </div>
+                            <?php } ?>
                             <div class="form-group">
                                 <label for="password">Password</label>
                                 <input type="text" class="form-control" id="password" name="password" ><?php if(isset($user->errors)){ echo $user->errors->on('password');} ?>
@@ -37,6 +41,9 @@
                                 <label for="email">Email</label>
                                 <input type="text" class="form-control" id="email" name="email" value="<?= $user->email ?>"><?php if(isset($user->errors)){ echo $user->errors->on('email');} ?>
                             </div>
+                            <?php
+                            if($user->id != $_SESSION['id']){
+                            ?>
                             <div class="form-group">
                                 <label for="telefone">Telefone</label>
                                 <input type="text" class="form-control" id="telefone" name="telefone" value="<?= $user->telefone ?>"><?php if(isset($user->errors)){ echo $user->errors->on('telefone');} ?>
@@ -70,6 +77,7 @@
                                 <label for="role">Role</label>
                                 <input readonly type="text" class="form-control" id="role" name="role" value="<?= $user->role ?>"><?php if(isset($user->errors)){ echo $user->errors->on('role');} ?>
                             </div>
+                            <?php } ?>
                         </div>
                         <!-- /.card-body -->
 
