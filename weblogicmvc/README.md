@@ -8,11 +8,14 @@
 # Contas predefinidas
 
 
-| nivel de permissões | username | password   |
-|---------------------|----------|------------|
-| cliente             | diogo    | Jfha3ljP6k |
-| funcionario         | gr       | Jfha3ljP6k |
-| admin               | grrg     | Jfha3ljP6k |
+| nivel de permissões | username | password |
+|---------------------|----------|---------|
+| Cliente             | Diogo    | 1234    |
+| Cliente             | Jose     | 1234    |
+| Funcionario         | Joao     | 1234    |
+| Funcionario         | Marcio   | 1234    |
+| Admin               | admin    | 1234    |
+
 
 ## Repositório github
 
