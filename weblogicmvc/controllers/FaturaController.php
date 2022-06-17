@@ -6,7 +6,11 @@ class FaturaController extends BaseAuthController
 {
     function index()
     {
-        $faturas = Fatura::all();
+        if($_SESSION['role'] == 'Cliente'){
+            $faturas = Fatura::find_all_by_cliente_id($_SESSION['id']);
+        }else{
+            $faturas = Fatura::all();
+        }
         $this->renderView('fatura/index',['faturas' => $faturas]);
     }
 

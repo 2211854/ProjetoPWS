@@ -27,7 +27,7 @@ class LinhaFaturaController extends BaseAuthController
         $fatura = Fatura::find([$idFatura]);
         //mostrar os produtos que ainda nao estao na fatura
         if(!is_null($procurarProduto)){
-            $produtos = Produto::find_by_sql('SELECT * FROM produtos WHERE id NOT in (SELECT produto_id FROM linha_faturas WHERE fatura_id = '.$idFatura.') and descricao LIKE "%'.$procurarProduto.'%"');
+            $produtos = Produto::find_by_sql('SELECT * FROM produtos WHERE id NOT in (SELECT produto_id FROM linha_faturas WHERE fatura_id = '.$idFatura.') and descricao LIKE "%'.$procurarProduto.'%"or referencia LIKE "%'.$procurarProduto.'%"');
         }else{
             $produtos = Produto::find_by_sql('SELECT * FROM produtos WHERE id NOT in (SELECT produto_id FROM linha_faturas WHERE fatura_id = '.$idFatura.')');
         }

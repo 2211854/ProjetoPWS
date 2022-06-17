@@ -32,9 +32,9 @@
                     <td><?=$fatura->cliente->username?></td>
                     <td><?=$fatura->user->username?></td>
                     <td>
-                        <?php  if($fatura->estado == 'em processamento'){ ?>
+                        <?php  if($fatura->estado == 'em processamento' && $_SESSION['role'] !='Cliente'){ ?>
                         <a href="?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
-                        <?php }else{?>
+                        <?php }elseif($fatura->estado == 'emitida'){?>
                             <a href="?c=fatura&a=show&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-success" >Mostrar</a>
                         <?php }?>
                     </td>

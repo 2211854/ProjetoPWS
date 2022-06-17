@@ -3,7 +3,7 @@
         <h1 class="card-title m-0">Escolha o produto</h1>
         <form action="./?c=linhaFatura&a=selectProduct&idFatura=<?=$fatura->id?>" method="post">
             <button type="submit" class="btn-sm text-decoration-none float-right btn-secondary" ><i class="fas fa-magnifying-glass"></i></button>
-            <input type="text" class="float-right col-3" id="produto" name="produto" placeholder="Nome do produto">
+            <input type="text" class="float-right col-3" id="produto" name="produto" placeholder="Nome/referencia do produto">
         </form>
     </div>
     <!-- /.card-header -->
