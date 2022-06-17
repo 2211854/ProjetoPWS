@@ -7,7 +7,6 @@
         <table class="table table-responsive-md">
             <thead>
             <tr>
-                <th style="width: 10px">#</th>
                 <th>Username</th>
                 <th>Email</th>
                 <th>Telefone</th>
@@ -21,7 +20,6 @@
             <tbody>
             <?php foreach ($clientes as $cliente) {
                     ?><tr>
-                    <td><?=$cliente->id?></td>
                     <td><?=$cliente->username?></td>
                     <td><?=$cliente->email?></td>
                     <td><?=$cliente->telefone?></td>

@@ -183,6 +183,9 @@ else
                     $controller->loginFilterByRole(['Admin','Funcionario']);
                     $controller->show($_GET['idFatura']);
                     break;
+                case "print":
+                    $controller->print($_GET['idFatura']);
+                    break;
             }
             break;
 

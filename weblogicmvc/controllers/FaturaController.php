@@ -84,4 +84,12 @@ class FaturaController extends BaseAuthController
         $this->renderView('fatura/show',['fatura'=>$fatura,'empresa'=>$empresa,'linhasFatura'=>$linhasFatura]);
     }
 
+    function print($id){
+
+        $fatura = Fatura::find([$id]);
+        $linhasFatura = LinhaFatura::find_all_by_fatura_id($id);
+        $empresa = Empresa::find([1]);
+        $this->renderView('fatura/print',['fatura'=>$fatura,'empresa'=>$empresa,'linhasFatura'=>$linhasFatura]);
+    }
+
 }

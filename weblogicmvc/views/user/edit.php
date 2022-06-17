@@ -31,7 +31,7 @@
                             </div>
                             <div class="form-group">
                                 <label for="password">Password</label>
-                                <input type="text" class="form-control" id="password" name="password" value="<?= $user->password ?>"><?php if(isset($user->errors)){ echo $user->errors->on('password');} ?>
+                                <input type="text" class="form-control" id="password" name="password" ><?php if(isset($user->errors)){ echo $user->errors->on('password');} ?>
                             </div>
                             <div class="form-group">
                                 <label for="email">Email</label>

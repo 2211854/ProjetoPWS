@@ -50,23 +50,26 @@ class UserController extends BaseAuthController
     function update($id)
     {
 
-        if(($_POST['username'] != " " ))
+        if(($_POST['username'] != "" ))
         {
             //find resource (activerecord/model) instance where PK = $id
             //your form name fields must match the ones of the table fields
             $user = User::find([$id]);
+            if($_POST['password'] != "" ){
+                $_POST['password']=md5($_POST['password']);
+            }
             $user->update_attributes($_POST);
             if($user->is_valid()){
                 $user->save();
                 $this->redirectToRoute('user', 'index',['tipo' => $user->role]);
             } else {
-                $this->renderView('user/edit', ['produto'=>$user]);
+                $this->renderView('user/edit', ['user'=>$user]);
             }
         }
         else
         {
             $user = User::find([$id]);
-            $this->renderView('user/edit', ['produto'=>$user]);
+            $this->renderView('user/edit', ['user'=>$user]);
         }
     }
 
