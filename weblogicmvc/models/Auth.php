@@ -18,6 +18,7 @@ class Auth
                 $_SESSION['username'] = $username;
                 $_SESSION['role'] = $user->role;
                 $_SESSION['id'] = $user->id;
+                $_SESSION['image'] = $user->image;
                 return true;
             }else{
                 return false;

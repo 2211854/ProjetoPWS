@@ -73,5 +73,44 @@ class UserController extends BaseAuthController
         }
     }
 
+    function imageChange($id)
+    {
+
+
+        if(isset($_FILES['image']))
+        {
+            $user = User::find([$id]);
+            $name = $_FILES['image']['name'];
+            $target_dir = "./public/temp_uploud/";
+            $target_file = $target_dir . basename($_FILES["image"]["name"]);
+
+            // Select file type
+            $imageFileType = strtolower(pathinfo($target_file,PATHINFO_EXTENSION));
+
+            // Valid file extensions
+            $extensions_arr = array("jpg","jpeg","png");
+
+            // Check extension
+            if( in_array($imageFileType,$extensions_arr) ) {
+                // Upload file
+                if (move_uploaded_file($_FILES['image']['tmp_name'], $target_file)) {
+                    // Convert to base64
+                    $image_base64 = base64_encode(file_get_contents($target_file));
+                    $image = 'data:image/' . $imageFileType . ';base64,' . $image_base64;
+                    // Insert record
+                    if($user->is_valid()){
+                        $user->update_attribute('image',$image);
+                        $user->save();
+
+                    }
+                }
+                unlink($target_file);
+            }
+
+        }
+        $this->redirectToRoute('backoffice','index');
+
+    }
+
 
 }
