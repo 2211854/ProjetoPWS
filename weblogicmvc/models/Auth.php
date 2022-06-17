@@ -55,7 +55,9 @@ class Auth
         {
             return $_SESSION['role'];
         }
-        return null;
+        else{
+            return null;
+        }
     }
 
     public function getId()

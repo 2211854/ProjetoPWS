@@ -12,7 +12,7 @@ class BaseController
         if($auth->isLoggedIn())
         {
             if($view == 'site/index'){
-                $this->redirectToRoute('site','show');
+                $this->redirectToRoute('backoffice','index');
             }
             else{
                 require_once './views/layout/header.php';

@@ -24,7 +24,7 @@ class AuthController extends BaseController
             $auth = new Auth();
             if($auth->checkLogin($_POST['name'], $_POST['password']))
             {
-                $this->redirectToRoute('site', 'index');
+                $this->redirectToRoute('backoffice', 'index');
             }
             else
             {
