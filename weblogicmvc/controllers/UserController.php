@@ -50,12 +50,12 @@ class UserController extends BaseAuthController
     function update($id)
     {
 
-        if(($_POST['username'] != "" ))
+        if(((isset($_POST['username'])&& $_POST['username'] != ""  ) || $_SESSION['id'] == $id))
         {
             //find resource (activerecord/model) instance where PK = $id
             //your form name fields must match the ones of the table fields
             $user = User::find([$id]);
-            if($_POST['password'] != "" ){
+            if(  $_POST['password'] != "" ){
                 $_POST['password']=md5($_POST['password']);
             }
             $user->update_attributes($_POST);

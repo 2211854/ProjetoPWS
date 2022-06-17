@@ -66,7 +66,7 @@
             </form>
         </div>
         <div class="info ">
-          <a href="#" class="d-block"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a><!-- Ao clicar aqui abrir uma pagina do utilizador onde se pode alterar a password caso seja possivel -->
+          <a href="./?c=user&a=edit&id=<?=$_SESSION['id'] ?>" class="d-block"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a><!-- Ao clicar aqui abrir uma pagina do utilizador onde se pode alterar a password caso seja possivel -->
         </div>
       </div>
 
@@ -123,12 +123,6 @@
                     <a href="./?c=produto&a=index" class="nav-link">
                       <i class="far fa-circle nav-icon"></i>
                       <p>Produtos</p>
-                    </a>
-                  </li>
-                  <li class="nav-item">
-                    <a href="#" class="nav-link">
-                      <i class="far fa-circle nav-icon"></i>
-                      <p>Stock</p>
                     </a>
                   </li>
                   <li class="nav-item">
