@@ -40,6 +40,10 @@ else
 
                 case "logout":
                     $controller->logout();
+                    break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 
@@ -49,6 +53,9 @@ else
                 case "index":
                     $controller->index();
                     break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 
@@ -59,6 +66,9 @@ else
                 case "index":
                     $controller->index();
                     break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 
@@ -69,6 +79,9 @@ else
                 case "index":
                     $controller->index();
                     break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 
@@ -95,6 +108,9 @@ else
                 case "destroy":
                     $controller->delete($_GET['id']);
                     break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 
@@ -117,6 +133,9 @@ else
                 case "store":
                     $controller->store();
                     break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 
@@ -149,6 +168,13 @@ else
                     $controller->loginFilterByRole(['Admin','Funcionario']);
                     $controller->store();
                     break;
+                case "imageChange":
+                    $controller->loginFilterByRole(['Admin','Funcionario','Cliente']);
+                    $controller->imageChange($_GET['id']);
+                    break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 
@@ -187,6 +213,9 @@ else
                     $controller->loginFilterByRole(['Admin','Funcionario']);
                     $controller->print($_GET['idFatura']);
                     break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 
@@ -219,6 +248,9 @@ else
                 case "destroy":
                     $controller->delete($_GET['idLinhaFatura']);
                     break;
+                default:
+                    $controller = new SiteController();
+                    $controller->index();
             }
             break;
 

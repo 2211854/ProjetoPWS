@@ -4,7 +4,7 @@ require_once './models/Auth.php';
 
 class BaseAuthController extends BaseController
 {
-    /*public function __construct()
+    public function __construct()
     {
         $auth = new Auth();
 
@@ -12,7 +12,7 @@ class BaseAuthController extends BaseController
         {
             header('Location: ./?' . INVALID_ACCESS_ROUTE);
         }
-    }*/
+    }
 
     public function loginFilterByRole($roles=[])
     {

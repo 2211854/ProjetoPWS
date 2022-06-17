@@ -47,8 +47,8 @@
   <!-- Main Sidebar Container -->
   <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
-    <a href="./?c=site&a=show" class="brand-link">
-      <img src="./public1/dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
+    <a href="./?c=backoffice&a=index" class="brand-link">
+      <img src="./public/img/logo.png" alt="Logo" class="brand-image img-circle elevation-3" style="opacity: .8">
         <span class="brand-text font-weight-light"> <?=APP_NAME?> </span>
     </a>
     </span>
@@ -57,10 +57,15 @@
     <div class="sidebar">
       <!-- Sidebar user (optional) -->
       <div class="user-panel mt-3 pb-3 mb-3 d-flex">
-        <div class="image">
-          <img src="./public1/dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+        <div class="image w-25 ">
+            <form enctype="multipart/form-data" action="./?c=user&a=imageChange&id=<?=$_SESSION['id']?>" method="POST">
+                 <div class="custom-file p-0">
+                     <img class="custom-file-label image-circle elevation-2 w-100 h-100 p-0" alt="User Image" src="<?=$_SESSION['image']?>">
+                    <input  type="file" class=" custom-file-input w-100 h-100 p-0" name="image" id="customFile" onchange="this.form.submit()">
+                </div>
+            </form>
         </div>
-        <div class="info">
+        <div class="info ">
           <a href="#" class="d-block"><?php if(isset($_SESSION['username'])){echo $_SESSION['username'];} ?></a><!-- Ao clicar aqui abrir uma pagina do utilizador onde se pode alterar a password caso seja possivel -->
         </div>
       </div>
