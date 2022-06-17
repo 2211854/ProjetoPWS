@@ -33,9 +33,9 @@
                     <td><?=$fatura->user->username?></td>
                     <td>
                         <?php  if($fatura->estado == 'em processamento' && $_SESSION['role'] !='Cliente'){ ?>
-                        <a href="?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
+                        <a href="?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-warning" ><i class="fa-solid fa-pen-to-square"></i></a>
                         <?php }elseif($fatura->estado == 'emitida'){?>
-                            <a href="?c=fatura&a=show&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-success" >Mostrar</a>
+                            <a href="?c=fatura&a=show&idFatura=<?=$fatura->id?>" class="btn-sm text-decoration-none btn-success" ><i class="fa-solid fa-eye"></i></a>
                         <?php }?>
                     </td>
                 </tr>

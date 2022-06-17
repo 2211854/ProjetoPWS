@@ -26,7 +26,7 @@
                     <td><?=$produto->stock?></td>
                     <td><?=$produto->iva->percentagem?> %</td>
                     <td>
-                        <a href="?c=produto&a=edit&id=<?=$produto->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
+                        <a href="?c=produto&a=edit&id=<?=$produto->id?>" class="btn-sm text-decoration-none btn-warning" ><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                 </tr>
             <?php } ?>

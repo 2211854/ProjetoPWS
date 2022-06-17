@@ -82,8 +82,8 @@
                                             <td>€ <?=number_format($linhaFatura->valor_iva,2)?></td>
                                             <td>€ <?=$linhaFatura->quantidade * ($linhaFatura->valor_iva + $linhaFatura->valor_unitario)?></td>
                                             <td>
-                                                <a href="?c=linhaFatura&a=edit&idLinhaFatura=<?=$linhaFatura->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
-                                                <a href="?c=linhaFatura&a=destroy&idLinhaFatura=<?=$linhaFatura->id?>" class="btn-sm text-decoration-none btn-danger" >Apagar</a>
+                                                <a href="?c=linhaFatura&a=edit&idLinhaFatura=<?=$linhaFatura->id?>" class="btn-sm text-decoration-none btn-warning" ><i class="fa-solid fa-pen-to-square"></i></a>
+                                                <a href="?c=linhaFatura&a=destroy&idLinhaFatura=<?=$linhaFatura->id?>" class="btn-sm text-decoration-none btn-danger" ><i class="fa-solid fa-xmark"></i></a>
                                             </td>
                                         </tr>
                                     <?php }
@@ -99,7 +99,7 @@
                                         <td>
                                             <button type="submit" class="btn-sm text-decoration-none btn-success" ><i class="fas fa-check"></i></button>
                                         </form>
-                                            <a href="./?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>" type="submit" class="btn-sm text-decoration-none btn-danger" ><i class="far fa-xmark"></i></a>
+                                            <button onclick="window.open('./?c=linhaFatura&a=create&idFatura=<?=$fatura->id?>','_self')" class="btn-sm text-decoration-none btn-danger" ><i class="fas fa-xmark"></i></button>
 
                                         </td>
                                     </tr>

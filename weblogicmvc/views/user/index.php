@@ -39,7 +39,7 @@
                     <td><?=$user->estado?></td>
                     <td><?=$user->role?></td>
                     <td>
-                        <a href="?c=user&a=edit&id=<?=$user->id?>" class="btn-sm text-decoration-none btn-warning" >Editar</a>
+                        <a href="?c=user&a=edit&id=<?=$user->id?>" class="btn-sm text-decoration-none btn-warning" ><i class="fa-solid fa-pen-to-square"></i></a>
                     </td>
                 </tr>
             <?php   }

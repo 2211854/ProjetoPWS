@@ -10,13 +10,13 @@ class ProdutoController extends BaseAuthController
     }
 
     function create(){
-        $ivas = Iva::all();
+        $ivas = Iva::find_all_by_em_vigor('ativado');
         $this->renderView('produto/create',['ivas'=>$ivas]);
     }
 
     function edit($id){
         $produto = Produto::find([$id]);
-        $ivas = Iva::all();
+        $ivas = Iva::find_all_by_em_vigor('ativado');
         if(is_null($produto)){
 
         }else{
@@ -27,7 +27,7 @@ class ProdutoController extends BaseAuthController
     function update($id)
     {
 
-        $ivas = Iva::all();
+        $ivas = Iva::find_all_by_em_vigor('ativado');
         if(($_POST['referencia'] != " " ))
         {
             //find resource (activerecord/model) instance where PK = $id
@@ -57,7 +57,7 @@ class ProdutoController extends BaseAuthController
 
     function store()
     {
-        $ivas = Iva::all();
+        $ivas = Iva::find_all_by_em_vigor('ativado');
         if(($_POST['referencia'] != " "))
         {
             //create new resource (activerecord/model) instance with data from POST
